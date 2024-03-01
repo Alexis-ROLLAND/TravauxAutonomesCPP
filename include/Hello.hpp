@@ -16,16 +16,16 @@ class Hello{
     public:
         		
     private:
-        std::string Nom{"Inconnu"};
+        std::string Nom{"Inconnu"}; /**< Name to be used*/
 
-        std::string getNom() const noexcept {return this->Nom;};
     public:
-        Hello() = default;
-        virtual ~Hello() = default;
+        Hello() = default;                              /**< Default Ctor is defaulted      */
+        virtual ~Hello() = default;                     /**< Dtor is the defaulted one      */
 
-        explicit Hello(std::string Nom):Nom{Nom}{};
+        explicit Hello(std::string Nom):Nom{Nom}{};     /**< Ctor with param (std::string) */
 
-        void    SayHello() const noexcept;
+        std::string getNom() const noexcept {return this->Nom;};    /**< getter for the name - No setter   */
+        void    SayHello() const noexcept;              /**< Makes the object say Hello i'm... */
 };
 
 
