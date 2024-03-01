@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.4)		# never set less 3.4 min version
-project(TestDe)
+project(TestTemplate)
 
 # Build type is debug by default
 # call cmake .. -DCMAKE_BUILD_TYPE=Release to change to relase
