@@ -19,14 +19,14 @@
 class Tirelire{
     public:
         enum class Piece : uint8_t {
-            ONECENT = 1,
-            TWOCENTS = 2,
-            FIVECENTS = 5,
-            TENCENTS = 10,
-            TWENTYCENTS = 20,
-            FIFTYCENTS = 50,
-            ONEEURO = 100,
-            TWOEUROS = 200
+            ONECENT = 1,                /**< 1 cent coin - Value is 1 cent          */
+            TWOCENTS = 2,               /**< 2 cents coin - Value is 2 cents        */
+            FIVECENTS = 5,              /**< 5 cents coin - Value is 5 cents        */
+            TENCENTS = 10,              /**< 10 cents coin - Value is 10 cents      */
+            TWENTYCENTS = 20,           /**< 20 cents coin - Value is 20 cents      */
+            FIFTYCENTS = 50,            /**< 50 cents coin - Value is 50 cents      */
+            ONEEURO = 100,              /**< 1 euro coin - Value is 100 cents       */
+            TWOEUROS = 200              /**< 2 euros coin - Value is 100 cents      */
         };        		
     private:
         std::vector<Piece> Vault{};
@@ -36,12 +36,12 @@ class Tirelire{
         Tirelire() = default;
         virtual ~Tirelire() = default;
 
-        [[nodiscard]]   bool    estVide() noexcept {return this->Vault.empty();};
-        [[nodiscard]]   int     getNbCoins() noexcept {return this->Vault.size();};    
+        [[nodiscard]]   bool            estVide() noexcept {return this->Vault.empty();};
+        [[nodiscard]]   unsigned int    getNbCoins() noexcept {return this->Vault.size();};    
         void    Add(Piece Coin);
         
         [[nodiscard]]   unsigned int    getTotal() noexcept;  
-        [[nodiscard]]   unsigned int    countCoins(Piece CoinType) noexcept {return  std::count (this->Vault.begin(), this->Vault.end(), CoinType);};  
+        [[nodiscard]]   unsigned int    countCoins(Piece CoinType); 
         void    retrieve(Piece CoinType);
 
         void    dump();

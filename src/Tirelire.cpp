@@ -22,6 +22,11 @@ void    Tirelire::Add(Piece Coin) {
     else this->Vault.push_back(Coin);
 }
 //----------------------------------------------------------------------------
+[[nodiscard]]   unsigned int    Tirelire::countCoins(Piece CoinType){
+    if (this->isCoinValid(CoinType)) return std::count (this->Vault.begin(), this->Vault.end(), CoinType);
+    else throw std::out_of_range("Coin is not valid");
+}
+//----------------------------------------------------------------------------
 [[nodiscard]]   unsigned int    Tirelire::getTotal() noexcept{
     unsigned int Somme{0};
 
@@ -33,6 +38,7 @@ void    Tirelire::Add(Piece Coin) {
 }  
 //----------------------------------------------------------------------------
 void    Tirelire::retrieve(Piece CoinType){
+    if (!this->isCoinValid(CoinType)) throw std::out_of_range("Coin is not valid");
     if (this->countCoins(CoinType) < 1) throw std::underflow_error("No corresponding coins inside the vault.");
 
     std::vector<Piece>::iterator it;

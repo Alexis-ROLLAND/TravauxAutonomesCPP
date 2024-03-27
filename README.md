@@ -13,7 +13,7 @@ TEST2 : Méthode Add qui permet d'ajouter une pièce
 
 TEST3 : Méthode getTotal, qui retourne (unsigned int) la somme contenue en centimes d'Euros
 
-TEST4 : Méthode countCoins, qui retourne le nombre de pièces d'un type donné.
+TEST4 : Méthode countCoins, qui retourne le nombre de pièces d'un type donné. Levée d'exception si type de pièce non valide.
 
-TEST5 : Retrieve, qui enlève une pièce d'un type donné. Levée d'Exception si pas de pièce correspondante.
+TEST5 : Retrieve, qui enlève une pièce d'un type donné. Levée d'Exception si pas de pièce correspondante ou si type de pièce non valide.
 

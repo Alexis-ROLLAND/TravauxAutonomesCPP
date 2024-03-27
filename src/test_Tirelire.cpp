@@ -61,11 +61,16 @@ TEST_CASE("testing Tirelire class : countCoins function") {
     SpiderCochon.Add(Tirelire::Piece::ONEEURO);
     CHECK(SpiderCochon.getNbCoins() == 1);
     CHECK(SpiderCochon.countCoins(Tirelire::Piece::ONEEURO) == 1);
+
+    CHECK_THROWS_WITH(unsigned int Nb = SpiderCochon.countCoins(static_cast<Tirelire::Piece>(7)), "Coin is not valid");
+
+
 }
 
 TEST_CASE("testing Tirelire class : retrieve function") {
     Tirelire SpiderCochon{};
 
+    CHECK_THROWS_WITH(SpiderCochon.retrieve(static_cast<Tirelire::Piece>(7)), "Coin is not valid");
     CHECK_THROWS_WITH(SpiderCochon.retrieve(Tirelire::Piece::ONEEURO), "No corresponding coins inside the vault.");
 
     SpiderCochon.Add(Tirelire::Piece::ONEEURO);
