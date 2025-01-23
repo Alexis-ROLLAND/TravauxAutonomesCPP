@@ -16,14 +16,12 @@
 constexpr       std::string DEFAULT_NAME{"Inconnu"};
 
 class Hello{
-    public:
-        		
     private:
         std::string Nom{DEFAULT_NAME};         /**< Name to be used by default   */
 
     public:
         /**
-         * Rule of 7 (6?): 
+         * Rule of 7 (6? 0?): 
          *      Use default versions for default Ctor, Copy Ctor, Move Ctor, 
          *      copy operator, move operator and Dtor.
          * 
@@ -37,7 +35,7 @@ class Hello{
         Hello& operator=(Hello&&) = default;            /**< Move Operator is explicitely defaulted     */
         virtual ~Hello() = default;                     /**< Dtor is explicitely the defaulted one      */
         
-        explicit Hello(std::string _Nom): Nom{_Nom}{};     /**< Ctor with param (std::string) */
+        explicit Hello(std::string _Nom): Nom{_Nom}{};     /**< Ctor with param (std::string)           */
 
         [[nodiscard]] std::string getNom() const noexcept {return this->Nom;};    /**< getter for the name - No setter   */
         void    SayHello() const noexcept;              /**< Makes the object say Hello i'm... */
@@ -47,3 +45,4 @@ class Hello{
 
 
 #endif  /*  __HELLO_HPP__ */
+
